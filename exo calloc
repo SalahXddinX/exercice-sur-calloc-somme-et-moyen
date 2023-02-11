@@ -22,8 +22,8 @@ int main()
     s = s + *(T+i);
    }
   m = s/n ;
-  printf("la somme des entier est : %f \n",&s);
-  printf("la moyenne des entier est : %f ",&m);
+  printf("la somme des entier est : %.2f \n",&s);
+  printf("la moyenne des entier est : %.2f ",&m);
   free (T);
  }
 
