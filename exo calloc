@@ -3,28 +3,46 @@
 
 int main()
 {
- int n,i;
+ int n;
  float s,m;
- printf("donner la taille de se tableau : ");
- scanf("%d",&n);
- float *T = calloc(n,sizeof(float));
- if (T == NULL){
-    printf("la memoire est vide");
-    exit(0);
- }
- else {
-   for(i=0;i<n;i++){
-   printf("entrer l'element T[%d]: ",i);
-   scanf("%f",(T+i));
-   }
-   s = 0;
-   for(i=0;i<n;i++){
-    s = s + *(T+i);
-   }
-  m = s/n ;
-  printf("la somme des entier est : %.2f \n",&s);
-  printf("la moyenne des entier est : %.2f ",&m);
-  free (T);
- }
+ float* T;
+
+//reading number of values
+printf("Donnez le nombre des valeurs n>0: ");
+scanf("%d",&n);
+
+//allocation avec calloc
+T=(float*)calloc(n,sizeof(float));
+
+if(T==NULL){
+    printf("allocation failed.\n");
+}else{
+    printf("allocation successful.\n");
+
+    //reading T values and sum of T values
+    s=0;
+    for(int i=0; i<n; i++){
+        printf("T[%d]= ",i+1);
+        scanf("%f",&T[i]);
+        printf("\n");
+        s=s+T[i];
+    }
+
+    //writing T values and after sum
+    for(int i=0; i<n; i++){
+        printf("%.2f \n",T[i]);
+    }
+    printf("sum of these values is %.2f \n",s);
+
+    //Mean of values
+    m=0;
+    if(n>0){
+        m=s/(float)n;
+        printf("mean of these values is %.2f \n",m);
+    }
+
+    free(T);
+    
+}
 
 }
